@@ -1,0 +1,92 @@
+{
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "targetDefaults": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["{projectRoot}/dist", "{projectRoot}/.next"],
+      "cache": true
+    },
+    "serve": {
+      "dependsOn": ["^build"],
+      "cache": false
+    },
+    "start": {
+      "dependsOn": ["^build"],
+      "cache": false
+    },
+    "start-dev": {
+      "dependsOn": ["^build"],
+      "cache": false
+    },
+    "start-prod": {
+      "dependsOn": ["build"],
+      "cache": false
+    },
+    "lint": {
+      "cache": true
+    },
+    "format": {
+      "cache": true
+    },
+    "format:check": {
+      "cache": true
+    },
+    "watch": {
+      "cache": false
+    }
+  },
+  "plugins": [
+    {
+      "plugin": "@nx/next/plugin",
+      "options": {
+        "startTargetName": "next:start",
+        "buildTargetName": "next:build",
+        "devTargetName": "next:dev",
+        "serveStaticTargetName": "serve-static",
+        "buildDepsTargetName": "build-deps",
+        "watchDepsTargetName": "watch-deps"
+      }
+    },
+    {
+      "plugin": "@nx/eslint/plugin",
+      "options": {
+        "targetName": "lint"
+      }
+    },
+    {
+      "plugin": "@nx/react/router-plugin",
+      "options": {
+        "buildTargetName": "build",
+        "devTargetName": "dev",
+        "startTargetName": "start",
+        "watchDepsTargetName": "watch-deps",
+        "buildDepsTargetName": "build-deps",
+        "typecheckTargetName": "typecheck"
+      }
+    },
+    {
+      "plugin": "@nx/storybook/plugin",
+      "options": {
+        "serveStorybookTargetName": "storybook",
+        "buildStorybookTargetName": "build-storybook",
+        "testStorybookTargetName": "test-storybook",
+        "staticStorybookTargetName": "static-storybook"
+      }
+    }
+  ],
+  "namedInputs": {
+    "default": ["{projectRoot}/**/*", "sharedGlobals"],
+    "production": [
+      "default",
+      "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
+      "!{projectRoot}/tsconfig.spec.json",
+      "!{projectRoot}/.eslintrc.json",
+      "!{projectRoot}/eslint.config.js",
+      "!{projectRoot}/**/*.stories.@(js|jsx|ts|tsx|mdx)",
+      "!{projectRoot}/.storybook/**/*",
+      "!{projectRoot}/tsconfig.storybook.json"
+    ],
+    "sharedGlobals": []
+  },
+  "nxCloudId": "68401efa5a05a339a6dde880"
+}

@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": ".",
+    "declaration": true,
+    "composite": true,
+    "incremental": true,
+    "module": "commonjs",
+    "skipLibCheck": true,
+    "esModuleInterop": true
+  },
+  "include": ["*.ts"]
+}

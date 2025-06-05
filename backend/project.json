@@ -1,0 +1,44 @@
+{
+  "name": "backend",
+  "root": "backend",
+  "sourceRoot": "backend/src",
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{projectRoot}/dist"],
+      "options": {
+        "outputPath": "backend/dist",
+        "webpackConfig": "backend/webpack.config.js"
+      }
+    },
+    "dev": {
+      "executor": "@nx/js:node",
+      "dependsOn": ["build"],
+      "options": {
+        "buildTarget": "backend:build",
+        "watch": true,
+        "runBuildTargetDependencies": false,
+        "inspect": false
+      }
+    },
+    "start": {
+      "executor": "@nx/js:node",
+      "dependsOn": ["build"],
+      "options": {
+        "buildTarget": "backend:build"
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "options": {
+        "jestConfig": "backend/jest-config.json"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "options": {
+        "lintFilePatterns": ["backend/src/**/*.ts"]
+      }
+    }
+  }
+} 

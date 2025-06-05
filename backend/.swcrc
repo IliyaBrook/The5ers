@@ -1,0 +1,30 @@
+{
+  "jsc": {
+    "target": "es2023",
+    "parser": {
+      "syntax": "typescript",
+      "decorators": true,
+      "dynamicImport": true
+    },
+    "transform": {
+      "legacyDecorator": true,
+      "decoratorMetadata": true
+    },
+    "keepClassNames": true,
+    "loose": true
+  },
+  "module": {
+    "type": "commonjs",
+    "strict": false,
+    "strictMode": true,
+    "lazy": false,
+    "noInterop": false
+  },
+  "sourceMaps": true,
+  "exclude": [
+    "node_modules",
+    "dist",
+    "**/*.spec.ts",
+    "**/*.test.ts"
+  ]
+} 

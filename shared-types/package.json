@@ -1,0 +1,20 @@
+{
+	"name": "@the5ers-stocks-app/shared-types",
+	"version": "1.0.0",
+	"main": "dist/index",
+	"private": true,
+	"description": "type package",
+	"scripts": {
+		"build": "tsc",
+		"start": "tsc",
+		"watch": "tsc --watch",
+		"dev": "tsc --watch"
+	},
+	"author": "Iliya Brook <iliyabrook1987@gmail.com>",
+	"license": "MIT",
+	"keywords": [],
+	"devDependencies": {
+		"mongoose": "^8.12.1",
+		"typescript": "~5.7.2"
+	}
+}

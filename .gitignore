@@ -1,0 +1,67 @@
+# Dependencies
+**/node_modules
+**/.pnp
+**/.pnp.js
+
+# Testing
+**/coverage
+
+# Next.js
+**/.next/
+**/out/
+
+# NestJS
+**/dist
+**/build
+**/.nest
+
+# Debug
+**/npm-debug.log*
+**/yarn-debug.log*
+**/yarn-error.log*
+**/pnpm-debug.log*
+**/.pnpm-debug.log*
+
+# Local env files
+# example project env files not in ignore list
+# **/.env
+# **/.env.local
+# **/.env.development.local
+# **/.env.test.local
+# **/.env.production.local
+
+# IDE
+**/.idea
+**/.vscode
+**/.history
+**/.cursor
+**/.cursorignore
+
+# Yarn
+**/.yarn/*
+!**/.yarn/patches
+!**/.yarn/plugins
+!**/.yarn/releases
+!**/.yarn/versions
+**/.yarn-integrity
+
+# TypeScript
+**/*.tsbuildinfo
+
+# Misc
+**/.DS_Store
+**/*.pem
+**/cheatsheet
+
+
+.nx/cache
+.nx/workspace-data
+.cursor/rules/nx-rules.mdc
+.github/instructions/nx.instructions.md
+
+# Next.js
+.next
+out
+
+
+storybook-static

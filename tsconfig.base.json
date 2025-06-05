@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "target": "es2020",
+    "lib": ["es2020", "dom"],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "composite": true,
+    "incremental": true,
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "baseUrl": ".",
+    "paths": {
+      "@the5ers-stocks-app/types": ["types/index.ts"],
+      "@the5ers-stocks-app/types/*": ["types/*"]
+    }
+  },
+  "include": [],
+  "exclude": ["node_modules", "tmp"]
+}

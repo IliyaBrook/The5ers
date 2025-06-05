@@ -1,0 +1,170 @@
+.appHeader {
+  padding: 0 50px !important;
+  background-color: #fff !important;
+  border-bottom: 1px solid #f0f0f0 !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+
+  &__logo {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    &Image {
+      border-radius: 50%;
+      border: 2px solid #f0f0f0;
+    }
+
+    &Text {
+      font-size: 20px;
+      font-weight: bold;
+      color: #1890ff;
+      white-space: nowrap;
+    }
+  }
+
+  &__navigation {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  &__userName {
+    white-space: nowrap;
+  }
+
+  /* Медиа запросы для респонсивности */
+  @media (max-width: 899px) {
+    padding: 0 20px;
+
+    &__logo {
+      &Text {
+        display: none;
+      }
+    }
+
+    &__navigation {
+      gap: 4px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    padding: 0 16px;
+
+    &__navigation {
+      gap: 4px;
+    }
+
+    &__userName {
+      display: none;
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 0 12px;
+  }
+}
+
+.header {
+  padding: 0 50px;
+  background-color: #fff;
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 64px;
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    &Wrapper {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+    }
+
+    &Image {
+      border-radius: 50%;
+      border: 2px solid #f0f0f0;
+    }
+  }
+
+  &__text {
+    font-size: 20px;
+    font-weight: bold;
+    color: #1890ff;
+    white-space: nowrap;
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  &__link {
+    color: #1890ff;
+    font-weight: 500;
+
+    &:hover {
+      color: #40a9ff;
+    }
+  }
+
+  &__button {
+    min-width: 80px;
+  }
+
+  &__user {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 6px;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #f5f5f5;
+    }
+  }
+
+  &__username {
+    color: #1890ff;
+    font-weight: 500;
+  }
+
+  /* Медиа запросы для респонсивности */
+  @media (max-width: 899px) {
+    padding: 0 20px;
+
+    &__text {
+      display: none;
+    }
+
+    &__nav {
+      gap: 8px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    padding: 0 16px;
+
+    &__nav {
+      gap: 4px;
+    }
+
+    &__username {
+      display: none;
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 0 12px;
+  }
+} 
