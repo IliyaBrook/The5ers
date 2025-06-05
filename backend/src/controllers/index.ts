@@ -1,8 +1,6 @@
-
 import { UserController } from './user.controller';
 import { PortfolioController } from './portfolio.controller';
 import { StocksController } from './stocks.controller';
-
 
 export * from './user.controller';
 export * from './portfolio.controller';

@@ -43,11 +43,9 @@ export class PortfolioService {
 
     this.logger.debug(`Fetching quotes for ${stocks.length} stocks for user ${userId}`);
 
-    
     const stocksWithQuotes = await Promise.all(
       stocks.map(async stock => {
         try {
-          
           const profile = await this.stocksService.getExtendedCompanyProfile(stock.symbol);
           const currentPrice = profile?.price || 0;
 
@@ -74,7 +72,6 @@ export class PortfolioService {
         } catch (error) {
           this.logger.error(`Error fetching data for ${stock.symbol}:`, error);
 
-          
           const calculations = this.calculationsService.calculateStockMetrics(
             stock.quantity,
             stock.averagePrice,
@@ -102,11 +99,9 @@ export class PortfolioService {
   async addStockToPortfolio(userId: string, addStockDto: AddStockDto): Promise<PortfolioStockDto> {
     const { symbol, quantity, averagePrice } = addStockDto;
 
-    
     const existingStock = await this.portfolioStockModel.findOne({ userId, symbol }).exec();
 
     if (existingStock) {
-      
       const { newQuantity, newAveragePrice } = this.calculationsService.calculateAveragePrice(
         existingStock.quantity,
         existingStock.averagePrice,
@@ -129,7 +124,6 @@ export class PortfolioService {
         updatedAt: updatedStock.updatedAt,
       });
     } else {
-      
       const newStock = new this.portfolioStockModel({
         userId,
         symbol: symbol.toUpperCase(),

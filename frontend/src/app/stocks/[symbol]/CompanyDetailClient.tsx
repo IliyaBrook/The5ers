@@ -96,7 +96,7 @@ const CompanyDetailClient = observer(({ symbol }: Props) => {
       return;
     }
     setModalVisible(true);
-    
+
     const currentPrice = quote?.price || profile?.price;
     if (currentPrice) {
       form.setFieldValue('averagePrice', currentPrice);

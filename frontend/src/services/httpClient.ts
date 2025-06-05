@@ -22,12 +22,10 @@ class HttpClient {
 
     let response = await fetch(url, requestOptions);
 
-    
     if (response.status === 401 && authStore.isAuthenticated) {
       const refreshSuccess = await this.handleTokenRefresh();
 
       if (refreshSuccess) {
-        
         const newHeaders = {
           ...headers,
           Authorization: `Bearer ${authStore.accessToken}`,
@@ -44,7 +42,6 @@ class HttpClient {
   }
 
   private async handleTokenRefresh(): Promise<boolean> {
-    
     if (this.isRefreshing) {
       return new Promise(resolve => {
         this.pendingRequests.push(() => resolve(authStore.isAuthenticated));
@@ -56,7 +53,6 @@ class HttpClient {
     try {
       const success = await authStore.refreshToken();
 
-      
       this.pendingRequests.forEach(callback => callback());
       this.pendingRequests = [];
 

@@ -5,16 +5,14 @@ interface Props {
   params: Promise<{ symbol: string }>;
 }
 
-
 async function getStockDataForMetadata(symbol: string) {
   try {
-    
     const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000/api';
     const response = await fetch(`${baseUrl}/stocks/extended-profile/${symbol}`, {
       headers: {
         'Content-Type': 'application/json',
       },
-      
+
       next: { revalidate: 300 },
     });
 
@@ -38,7 +36,6 @@ export async function generateMetadata(
   const symbolUpper = symbol.toUpperCase();
 
   try {
-    
     const response = await getStockDataForMetadata(symbolUpper);
 
     if (response.success && response.data) {
@@ -48,7 +45,6 @@ export async function generateMetadata(
         companyData.description ||
         `View detailed stock information for ${companyName} (${symbolUpper}) including real-time quotes, financial data, and performance metrics.`;
 
-      
       const previousImages = (await parent).openGraph?.images || [];
 
       return {
@@ -89,7 +85,6 @@ export async function generateMetadata(
     console.error('Error generating metadata for stock:', error);
   }
 
-  
   return {
     title: `${symbolUpper} Stock Details`,
     description: `View detailed stock information for ${symbolUpper} including real-time quotes, financial data, and performance metrics on The5ers platform.`,

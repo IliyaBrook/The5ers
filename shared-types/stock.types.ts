@@ -152,7 +152,6 @@ export interface IFmpHistoricalPrice {
   changeOverTime: number;
 }
 
-
 export interface IFmpBiggestMover {
   symbol: string;
   price: number;
@@ -161,7 +160,6 @@ export interface IFmpBiggestMover {
   changesPercentage: number;
   exchange: string;
 }
-
 
 export interface IFmpExtendedCompanyProfile {
   symbol: string;
@@ -205,7 +203,6 @@ export interface IFmpExtendedCompanyProfile {
   dcf: number;
   dcfDiff: number;
 }
-
 
 export interface IStockQuoteDisplay {
   symbol: string;

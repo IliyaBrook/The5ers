@@ -23,7 +23,7 @@ export class StocksService {
   async searchStocks(query: string, limit: number = 10): Promise<IFmpSearchResult[]> {
     try {
       this.logger.debug(`Searching stocks with query: ${query}, limit: ${limit}`);
-      
+
       const response = await fetch(
         `${this.baseUrl}/search-name?query=${encodeURIComponent(query)}&limit=${limit}&apikey=${this.apiKey}`
       );
@@ -48,13 +48,15 @@ export class StocksService {
       const response = await fetch(url);
 
       if (!response.ok) {
-        this.logger.error(`FMP API error for quote ${symbol}: ${response.status} ${response.statusText}`);
+        this.logger.error(
+          `FMP API error for quote ${symbol}: ${response.status} ${response.statusText}`
+        );
         throw new Error(`FMP API error: ${response.status}`);
       }
 
       const data = await response.json();
       const result = Array.isArray(data) && data.length > 0 ? data[0] : null;
-      
+
       this.logger.debug(`Quote result for ${symbol}: ${result ? 'Found' : 'Not found'}`);
       return result;
     } catch (error) {
@@ -71,13 +73,15 @@ export class StocksService {
       const response = await fetch(url);
 
       if (!response.ok) {
-        this.logger.error(`FMP API error for company profile ${symbol}: ${response.status} ${response.statusText}`);
+        this.logger.error(
+          `FMP API error for company profile ${symbol}: ${response.status} ${response.statusText}`
+        );
         throw new Error(`FMP API error: ${response.status}`);
       }
 
       const data = await response.json();
       const result = Array.isArray(data) && data.length > 0 ? data[0] : null;
-      
+
       this.logger.debug(`Company profile result for ${symbol}: ${result ? 'Found' : 'Not found'}`);
       return result;
     } catch (error) {
@@ -98,7 +102,6 @@ export class StocksService {
       if (!response.ok) {
         this.logger.warn(`Primary endpoint failed for ${type}, trying fallback`);
 
-        
         const fallbackEndpoint = type === 'gainers' ? 'gainers' : 'losers';
         const fallbackUrl = `${this.baseUrl}/${fallbackEndpoint}?apikey=${this.apiKey}`;
 
@@ -142,7 +145,7 @@ export class StocksService {
     try {
       const symbolsString = symbols.map(s => s.toUpperCase()).join(',');
       this.logger.debug(`Fetching batch quotes for symbols: ${symbolsString}`);
-      
+
       const response = await fetch(`${this.baseUrl}/quote/${symbolsString}?apikey=${this.apiKey}`);
 
       if (!response.ok) {
@@ -193,7 +196,9 @@ export class StocksService {
       const response = await fetch(url);
 
       if (!response.ok) {
-        this.logger.error(`FMP API error for extended profile ${symbol}: ${response.status} ${response.statusText}`);
+        this.logger.error(
+          `FMP API error for extended profile ${symbol}: ${response.status} ${response.statusText}`
+        );
         throw new Error(`FMP API error: ${response.status}`);
       }
 

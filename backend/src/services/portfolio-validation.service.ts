@@ -17,7 +17,6 @@ export class PortfolioValidationService {
       throw new BadRequestException('Symbol cannot be longer than 10 characters');
     }
 
-    
     if (!/^[A-Z0-9]+$/.test(cleanSymbol)) {
       throw new BadRequestException('Symbol must contain only letters and numbers');
     }

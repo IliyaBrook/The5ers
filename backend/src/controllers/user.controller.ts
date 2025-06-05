@@ -134,7 +134,6 @@ export class UserController {
     });
   }
 
-  
   @UseGuards(JwtAuthGuard)
   @Get()
   async getUsers(

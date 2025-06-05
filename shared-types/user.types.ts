@@ -16,7 +16,6 @@ export interface IRefreshToken {
   updatedAt: Date;
 }
 
-
 export interface IUserQueryProjection {
   email?: 1 | 0;
   firstname?: 1 | 0;

@@ -14,7 +14,10 @@ export class StocksController {
   constructor(private readonly stocksService: StocksService) {}
 
   @Get('search')
-  async searchStocks(@Query('query') query: string, @Query('limit') limit?: number): Promise<IFmpSearchResult[]> {
+  async searchStocks(
+    @Query('query') query: string,
+    @Query('limit') limit?: number
+  ): Promise<IFmpSearchResult[]> {
     const searchLimit = limit ? parseInt(limit.toString(), 10) : 10;
     return this.stocksService.searchStocks(query, searchLimit);
   }
@@ -30,12 +33,16 @@ export class StocksController {
   }
 
   @Get('extended-profile/:symbol')
-  async getExtendedCompanyProfile(@Param('symbol') symbol: string): Promise<IFmpExtendedCompanyProfile | null> {
+  async getExtendedCompanyProfile(
+    @Param('symbol') symbol: string
+  ): Promise<IFmpExtendedCompanyProfile | null> {
     return this.stocksService.getExtendedCompanyProfile(symbol);
   }
 
   @Get('movers')
-  async getMarketMovers(@Query('type') type: 'gainers' | 'losers' = 'gainers'): Promise<IFmpBiggestMover[]> {
+  async getMarketMovers(
+    @Query('type') type: 'gainers' | 'losers' = 'gainers'
+  ): Promise<IFmpBiggestMover[]> {
     return this.stocksService.getMarketMovers(type);
   }
 

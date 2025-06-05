@@ -77,7 +77,6 @@ const StocksClient = observer(() => {
       return;
     }
 
-    
     const searchResultFormat: SearchResultWithUI = {
       symbol: stock.symbol,
       name: stock.name,

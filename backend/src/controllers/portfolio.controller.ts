@@ -1,19 +1,8 @@
-import {
-  Controller,
-  Get,
-  Post,
-  Put,
-  Delete,
-  Body,
-  Param,
-  UseGuards,
-  Req,
-  NotFoundException,
-} from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put, Req, UseGuards } from '@nestjs/common';
 import { Request } from 'express';
+import { AddStockDto, UpdateStockDto } from '../dto/portfolio.dto';
 import { JwtAuthGuard } from '../guards/jwt-auth.guard';
 import { PortfolioService } from '../services/portfolio.service';
-import { AddStockDto, UpdateStockDto } from '../dto/portfolio.dto';
 
 @Controller('portfolio')
 @UseGuards(JwtAuthGuard)

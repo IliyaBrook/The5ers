@@ -2,7 +2,6 @@ import { makeAutoObservable, runInAction } from 'mobx';
 import type { IFmpSearchResult } from '@the5ers-stocks-app/shared-types';
 import { stocksService } from '@/services/stocksService';
 
-
 export interface StockWithUI {
   symbol: string;
   price: number;
@@ -33,13 +32,13 @@ export class StocksStore {
   gainersCurrentPage = 1;
   losersCurrentPage = 1;
 
-  
   searchResults: SearchResultWithUI[] = [];
   searchQuery = '';
   showingAllStocks = false;
 
   sortBy: 'price' | 'change' | 'volume' | 'marketCap' = 'change';
-  filterBy: 'all' | '0-10' | '10-20' | '20-30' | '30-40' | '40-50' | '50-60' | '60-70' | 'above70' = 'all';
+  filterBy: 'all' | '0-10' | '10-20' | '20-30' | '30-40' | '40-50' | '50-60' | '60-70' | 'above70' =
+    'all';
 
   loading = false;
   searchLoading = false;
@@ -103,7 +102,6 @@ export class StocksStore {
   applyFilters(stocks: StockWithUI[]): StockWithUI[] {
     let filtered = [...stocks];
 
-    
     switch (this.filterBy) {
       case '0-10':
         filtered = filtered.filter(stock => stock.price >= 0 && stock.price < 10);
@@ -131,7 +129,6 @@ export class StocksStore {
         break;
     }
 
-    
     switch (this.sortBy) {
       case 'price':
         filtered.sort((a, b) => b.price - a.price);
@@ -205,11 +202,9 @@ export class StocksStore {
       if (sortBy) this.sortBy = sortBy;
       if (filterBy) this.filterBy = filterBy;
 
-      
       this.gainersCache = {};
       this.losersCache = {};
 
-      
       this.loadGainersPage(this.gainersCurrentPage);
       this.loadLosersPage(this.losersCurrentPage);
     });
@@ -275,7 +270,6 @@ export class StocksStore {
             }))
           : [];
 
-        
         const combined = [...localMapped, ...apiMapped];
         const uniqueResults = combined.filter(
           (stock, index, self) => index === self.findIndex(s => s.symbol === stock.symbol)

@@ -19,7 +19,6 @@ export class RefreshToken {
 
 export const RefreshTokenSchema = SchemaFactory.createForClass(RefreshToken);
 
-
 const days30 = 30 * 24 * 60 * 60;
 RefreshTokenSchema.index(
   { createdAt: 1 },
@@ -27,7 +26,6 @@ RefreshTokenSchema.index(
     expireAfterSeconds: days30,
   }
 );
-
 
 RefreshTokenSchema.index({ user: 1 }, { unique: true });
 

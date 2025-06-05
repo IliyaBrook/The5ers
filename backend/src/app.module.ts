@@ -18,14 +18,13 @@ const frontendAppPath = join(__dirname, '..', '..', 'frontend', 'build', 'fronte
       ? [
           ServeStaticModule.forRoot({
             rootPath: frontendAppPath,
-            
           }),
         ]
       : []),
   ],
-  
+
   controllers,
-  
+
   providers: [...services, ...guards],
 })
 export class AppModule {}

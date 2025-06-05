@@ -55,4 +55,4 @@ export const usePortfolio = () => {
     addToPortfolio,
     isAuthenticated: authStore.isAuthenticated,
   };
-}; 
+};
