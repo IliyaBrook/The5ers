@@ -1,0 +1,22 @@
+{
+  "name": "The5ers Stock Management",
+  "short_name": "The5ers Stocks",
+  "description": "Professional stock portfolio management platform with real-time market data and analytics",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1890ff",
+  "orientation": "portrait-primary",
+  "categories": ["finance", "business", "productivity"],
+  "lang": "en",
+  "dir": "ltr",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+} 

@@ -7,7 +7,6 @@
 	"scripts": {
 		"build": "tsc",
 		"start": "tsc",
-		"watch": "tsc --watch",
 		"dev": "tsc --watch"
 	},
 	"author": "Iliya Brook <iliyabrook1987@gmail.com>",
