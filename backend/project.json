@@ -28,12 +28,6 @@
         "buildTarget": "backend:build"
       }
     },
-    "test": {
-      "executor": "@nx/jest:jest",
-      "options": {
-        "jestConfig": "backend/jest-config.json"
-      }
-    },
     "lint": {
       "executor": "@nx/eslint:lint",
       "options": {

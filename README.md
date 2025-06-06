@@ -71,7 +71,7 @@ The application includes the following main pages:
 
 ### Development Tools
 - **Nx 21.1.2** - Monorepo development toolkit for scalable development
-- **Storybook** - Component development and testing
+- **Storybook** - Component development and viewing
 - **Docker** - Containerization
 - **ESLint & Prettier** - Code quality and formatting
 
@@ -188,7 +188,6 @@ Launch Storybook to browse and develop UI components in isolation
 yarn lint           # Run linting
 yarn lint:fix       # Fix linting issues automatically
 yarn format        # Format code with Prettier
-yarn test          # Run tests
 ```
 
 ### Production Build
@@ -246,7 +245,6 @@ yarn storybook
 
 This provides an interactive catalog of all UI components used in the application, making it easy to:
 - View component variations
-- Test component states
 - Understand component APIs
 - Develop components in isolation
 
