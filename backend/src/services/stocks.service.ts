@@ -12,14 +12,12 @@ import type {
 @Injectable()
 export class StocksService {
   private readonly logger = new Logger(StocksService.name);
-  private readonly apiKey: string;
+  private readonly apiKey: string | undefined;
   private readonly baseUrl = 'https://financialmodelingprep.com/stable';
 
   constructor(private readonly configService: ConfigService) {
-    this.apiKey =
-      this.configService.get<string>('FMP_API_KEY') || 'zSw89oAmBqblgVUDQrxzusSROillCLC4';
+    this.apiKey = this.configService.get<string | undefined>('FMP_API_KEY');
   }
-
   async searchStocks(query: string, limit: number = 10): Promise<IFmpSearchResult[]> {
     try {
       this.logger.debug(`Searching stocks with query: ${query}, limit: ${limit}`);
@@ -166,7 +164,7 @@ export class StocksService {
     to?: string
   ): Promise<IFmpHistoricalPrice[]> {
     try {
-      const params = new URLSearchParams({ apikey: this.apiKey });
+      const params = new URLSearchParams({ apikey: this.apiKey || '' });
       if (from) params.append('from', from);
       if (to) params.append('to', to);
 
