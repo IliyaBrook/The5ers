@@ -34,10 +34,12 @@ const StocksClient = observer(() => {
   const [form] = Form.useForm();
 
   useEffect(() => {
-    stocksStore.fetchMarketMovers().catch(() => {
-      message.error('Failed to fetch market data');
-    });
-  }, [message]);
+    if (!authStore.isInitializing) {
+      stocksStore.fetchMarketMovers().catch(() => {
+        message.error('Failed to fetch market data');
+      });
+    }
+  }, [message, authStore.isInitializing]);
 
   const onInputSearch = useCallback((value: string) => {
     stocksStore.searchStocks(value);
