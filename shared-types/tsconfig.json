@@ -7,7 +7,11 @@
     "incremental": true,
     "module": "commonjs",
     "skipLibCheck": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "target": "ES2020"
   },
-  "include": ["*.ts"]
+  "include": ["*.ts"],
+  "exclude": ["dist", "node_modules"]
 }

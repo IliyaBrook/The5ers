@@ -1,19 +1,28 @@
 {
 	"name": "@the5ers-stocks-app/shared-types",
 	"version": "1.0.0",
-	"main": "dist/index",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"exports": {
+		".": {
+			"development": "./index.ts",
+			"default": "./dist/index.js"
+		},
+		"./package.json": "./package.json"
+	},
 	"private": true,
 	"description": "type package",
 	"scripts": {
 		"build": "tsc",
 		"start": "tsc",
-		"dev": "tsc --watch"
+		"dev": "tsc --watch --preserveWatchOutput --pretty"
 	},
 	"author": "Iliya Brook <iliyabrook1987@gmail.com>",
 	"license": "MIT",
 	"keywords": [],
 	"devDependencies": {
 		"mongoose": "^8.12.1",
+		"rimraf": "^6.0.1",
 		"typescript": "~5.7.2"
 	}
 }

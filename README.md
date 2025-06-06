@@ -83,7 +83,7 @@ This project is built using **Nx**, a powerful development toolkit for monorepos
 - **Unified Development**: Manage frontend, backend, and shared types in one repository
 - **Code Sharing**: Shared TypeScript types between client and server
 - **Efficient Builds**: Smart rebuilds and caching for faster development
-- **Consistent Tooling**: Unified linting, testing, and formatting across all projects
+projects
 - **Scalable Architecture**: Easy to add new applications and libraries
 
 ### Nx Project Structure
